@@ -1,8 +1,8 @@
+import { MoonFilled, SunOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { ROUTES } from '../../routes/paths';
 import { Button } from 'antd';
-import React from 'react';
 import './Header.css';
 
 export const Header = () => {
@@ -10,13 +10,24 @@ export const Header = () => {
   const { isAuth } = useAuth();
 
   return (
-    <div>
-      Header
+    <header>
+      <div>
+        <Button onClick={() => navigate('/')}>Logo</Button>
+      </div>
+      <div>
+        <MoonFilled />
+        <SunOutlined />
+      </div>
       <div>
         {isAuth ? (
           <Button onClick={() => navigate(ROUTES.PROFILE_PATH)}>Profile</Button>
-        ) : null}
+        ) : (
+          <>
+            <Button>Sign In</Button>
+            <Button>Sign Up</Button>
+          </>
+        )}
       </div>
-    </div>
+    </header>
   );
 };

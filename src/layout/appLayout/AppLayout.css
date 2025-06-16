@@ -1,0 +1,10 @@
+main {
+  min-height: 87vh;
+}
+
+.app-layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
