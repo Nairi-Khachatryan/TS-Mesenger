@@ -1,12 +1,13 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../../services/firebaseConfig';
 import { setUser } from '../../../features/userSlice';
+import type { AppDispatch } from '../../../app/store';
 import type { FieldType } from '../types';
 import type { FormProps } from 'antd';
 
 type SignUpDependencies = {
   setError: (msg: string) => void;
-  dispatch: any;
+  dispatch: AppDispatch;
   navigate: (path: string) => void;
   form: any;
 };
@@ -23,6 +24,7 @@ export const onFinish =
 
     if (password !== confirmPassword) {
       setError("Passwords don't match.");
+      form.setFieldsValue({ password: '' });
       return;
     }
 
@@ -40,16 +42,16 @@ export const onFinish =
         id: user.uid,
         token,
       };
-
       dispatch(setUser(userData));
       navigate('/');
     } catch (error: any) {
+      console.log(error);
       setError(error.message);
     }
   };
 
-export const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (
-  errorInfo
-) => {
-  console.log('Failed:', errorInfo);
-};
+// export const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (
+//   errorInfo
+// ) => {
+//   console.log('Failed:', errorInfo);
+// };

@@ -1,10 +1,12 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import { ROUTES } from '../paths';
 
 export const ProtectedRoutes: React.FC = () => {
-  const isAuth = false; 
+  const { email } = useAuth();
 
-  if (!isAuth) {
-    return <Navigate to="/sign-in" />;
+  if (!email) {
+    return <Navigate to={ROUTES.SIGN_IN_PATH} />;
   }
 
   return <Outlet />;

@@ -1,18 +1,18 @@
 import { Button, Checkbox, Col, Form, Input } from 'antd';
-import { onFinishFailed } from './signUpServices';
+// import { onFinishFailed } from './signUpServices';
 import { useAppDispatch } from '../../app/hook';
 import { useNavigate } from 'react-router-dom';
 import { onFinish } from './signUpServices';
-import React, { useState } from 'react';
-import type { FieldType } from './types';
-import './SignUp.css';
 import { ROUTES } from '../../routes/paths';
+import type { FieldType } from './types';
+import React, { useState } from 'react';
+import './SignUp.css';
 
 export const SignUp: React.FC = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const form = Form.useForm();
-  const dispatch = useAppDispatch;
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -22,7 +22,7 @@ export const SignUp: React.FC = () => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
-        onFinishFailed={onFinishFailed}
+        // onFinishFailed={onFinishFailed}
         initialValues={{ remember: true }}
         onFinish={onFinish({ setError, navigate, form, dispatch })}
       >
