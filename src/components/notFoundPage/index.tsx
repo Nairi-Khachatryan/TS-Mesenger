@@ -1,6 +1,6 @@
 import notFoundImg from '../../images/404-error.jpg';
-import './index.css';
 import { Button } from 'antd';
+import './index.css';
 
 const NotFoundComponent = () => {
   return (
