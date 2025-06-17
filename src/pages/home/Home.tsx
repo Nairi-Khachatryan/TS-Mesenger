@@ -1,11 +1,16 @@
-import './Home.css'
+import './Home.css';
 
 const Home = () => {
-  return (
-    <div>
-      Home
-    </div>
-  )
-}
+  const socket = new WebSocket('ws://localhost:8080');
 
-export default Home
+  // Connection opened
+  socket.addEventListener('open', (event) => {
+    socket.send('Hello Server!');
+  });
+
+
+  
+  return <div>Home</div>;
+};
+
+export default Home;
