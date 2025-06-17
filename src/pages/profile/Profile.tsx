@@ -5,6 +5,7 @@ import { UserOutlined } from '@ant-design/icons';
 import ProfileTab from './profileTab/ProfileTab';
 import React from 'react';
 import './Profile.css';
+import FriendTab from './friendTab/FriendTab';
 
 const { Title, Text } = Typography;
 
@@ -25,12 +26,22 @@ export const Profile: React.FC = () => {
       label: 'Activity',
       children: <ActivityTab />,
     },
+    {
+      key: '4',
+      label: 'Friend',
+      children: <FriendTab />,
+    },
   ];
 
   return (
-    <div className="profile-page" >
+    <div className="profile-page">
       <Row className="profile-row" gutter={[32, 32]} align="middle">
-        <Col className='profile-tab-items' xs={24} md={6} style={{ textAlign: 'center' }}>
+        <Col
+          className="profile-tab-items"
+          xs={24}
+          md={6}
+          style={{ textAlign: 'center' }}
+        >
           <Avatar size={120} icon={<UserOutlined />} />
           <Title level={4} style={{ marginTop: 16 }}>
             Nairi Khachatryan
@@ -43,7 +54,11 @@ export const Profile: React.FC = () => {
         </Col>
 
         <Col className="profile-tabs-wrapper" xs={24} md={18}>
-          <Tabs defaultActiveKey="1" items={tabItems} style={{minWidth: 500}} />
+          <Tabs
+            defaultActiveKey="1"
+            items={tabItems}
+            style={{ minWidth: 500 }}
+          />
         </Col>
       </Row>
     </div>

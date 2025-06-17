@@ -2,7 +2,7 @@ import { MoonFilled, SunOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { ROUTES } from '../../routes/paths';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import './Header.css';
 
 export const Header = () => {
@@ -13,6 +13,9 @@ export const Header = () => {
     <header>
       <div>
         <Button onClick={() => navigate('/')}>Logo</Button>
+      </div>
+      <div>
+        <Input placeholder='Search' />
       </div>
       <div>
         <MoonFilled />
