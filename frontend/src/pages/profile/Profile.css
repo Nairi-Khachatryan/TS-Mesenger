@@ -1,0 +1,16 @@
+.profile-row {
+  margin-left: -16px;
+  margin-right: -16px;
+  row-gap: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: nowrap;
+}
+
+.profile-tab-items {
+  min-width: 500px;
+}
+
+
